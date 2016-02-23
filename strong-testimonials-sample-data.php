@@ -4,7 +4,7 @@
  * Plugin URI: http://www.wpmission.com
  * Description: Sample data for the Strong Testimonials plugin.
  * Author: Chris Dillon
- * Version: 0.3
+ * Version: 0.4
  * Author URI: http://www.wpmission.com
  * Text Domain: strong-testimonials-sample-data
  * Requires: 3.3 or higher
@@ -31,14 +31,25 @@ class Strong_Testimonials_Sample_Data {
 		register_activation_hook( __FILE__, array( $this, 'insert_posts' ) );
 	}
 
+
+	/**
+	 * Insert the testimonials.
+	 */
 	public function insert_posts() {
 
 		$posts = $this->get_posts();
+		$now = time();
+		$date_format = 'Y-m-d H:i:s';
 
+		$i = 12;
 		foreach ( $posts as $apost ) {
 			$post = $apost['post'];
-			$post['post_date'] = date( 'Y-m-d H:i:s' );
-			$post['post_date_gmt'] = gmdate( 'Y-m-d H:i:s' );
+
+			$i--;
+			$newtime = $now - $i * 60 * 60 * 24 * 7; // 1 week
+
+			$post['post_date'] = date( $date_format, $newtime );
+			$post['post_date_gmt'] = gmdate( $date_format, $newtime );
 
 			if ( null == get_page_by_title( $post['post_title'], OBJECT, 'wpm-testimonial' ) ) {
 
@@ -58,13 +69,18 @@ class Strong_Testimonials_Sample_Data {
 					$success = $this->add_thumbnail( $post_id, $apost['thumbnail']['name'] );
 				}
 
-				sleep( 5 );
 			}
 
 		}
 
 	}
 
+	/**
+	 * @param $post_id
+	 * @param $fields
+	 *
+	 * @return bool
+	 */
 	public function add_meta( $post_id, $fields ) {
 		foreach ( $fields as $key => $value ) {
 			$meta_id = add_post_meta( $post_id, $key, $value );
@@ -74,8 +90,16 @@ class Strong_Testimonials_Sample_Data {
 		return true;
 	}
 
-	// Copy thumbnails to uploads directory and attach to this post.
-	// Thanks https://tommcfarlin.com/upload-files-wordpress-media-library/
+
+	/**
+	 * Copy thumbnails to uploads directory and attach to this post.
+	 * Thanks https://tommcfarlin.com/upload-files-wordpress-media-library/
+	 *
+	 * @param $post_id
+	 * @param $filename
+	 *
+	 * @return bool
+	 */
 	public function add_thumbnail( $post_id, $filename ) {
 		// Locate the file.
 		$file = plugin_dir_path( __FILE__ ) . 'images/' . $filename;
@@ -113,32 +137,12 @@ class Strong_Testimonials_Sample_Data {
 	}
 
 
+	/**
+	 * @return array
+	 */
 	public function get_posts() {
 
 		$posts = array();
-
-		/*
-		$posts[] = array(
-			'post' => array(
-				'post_content'   => '',
-				'post_name'      => '',
-				'post_title'     => '',
-				'post_excerpt'   => '',
-				'post_type'      => 'wpm-testimonial',
-				'post_status'    => 'publish',
-			),
-			'thumbnail' => array(
-				'name' => '',
-				'type' => 'jpg',
-			),
-			'meta' => array(
-				'client_name'     => '',
-				'email'           => '',
-				'company_name'    => '',
-				'company_website' => '',
-			),
-		);
-		*/
 
 		$posts[] = array(
 			'post' => array(
