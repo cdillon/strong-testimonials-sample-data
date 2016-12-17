@@ -4,7 +4,7 @@
  * Plugin URI: http://www.wpmission.com
  * Description: Sample data for the Strong Testimonials plugin.
  * Author: Chris Dillon
- * Version: 0.4
+ * Version: 0.5
  * Author URI: http://www.wpmission.com
  * Text Domain: strong-testimonials-sample-data
  * Requires: 3.3 or higher
@@ -146,21 +146,20 @@ class Strong_Testimonials_Sample_Data {
 
 		$posts[] = array(
 			'post' => array(
-				'post_content' => 'Kevin is a total professional. I had used him before for some accounting work, but when our company had a paperwork mini-crisis he worked hard and fast with us to pull things around.',
-				'post_name' => 'a-total-professional',
-				'post_title' => 'A total professional',
-				'post_excerpt' => 'He worked hard and fast with us to pull things around.',
+				'post_content' => 'We have worked with Kevin in the past and we recommend him wholeheartedly! The most important thing for us is that he listens. The last project he worked with us on was to organize QuickBooks. We had no clue where to start! We only knew we needed a simple, straightforward process that just worked so we could focus on our business. Kevin tailored a plan for us and walked us through it. He delivered on time with no issues.',
+				'post_title' => 'He delivered on time',
+				'post_excerpt' => 'We recommend him wholeheartedly!',
 				'post_type' => 'wpm-testimonial',
 				'post_status' => 'publish',
 			),
 			'thumbnail' => array(
-				'name' => 'stock-photo-15021271-small-business-owner-at-work.jpg',
+				'name' => 'photo-07.jpg',
 				'type' => 'jpg',
 			),
 			'meta' => array(
-				'client_name' => 'Patrick Stern',
+				'client_name' => 'Patrick Wong',
 				'email' => '',
-				'company_name' => 'Actos & Stern',
+				'company_name' => 'Wong Photography',
 				'company_website' => 'http://demos.wpmission.com',
 			),
 		);
@@ -168,14 +167,13 @@ class Strong_Testimonials_Sample_Data {
 		$posts[] = array(
 			'post' => array(
 				'post_content' => 'His attention to detail is what separates him from the rest. Today’s accountants don’t seem to have that level of accuracy that they did when I first started out in this business. Kevin, however, is a cut above and delivers the kind of quality that I used to produce when I started out as accountant for my Pop.',
-				'post_name' => 'a-cut-above',
 				'post_title' => 'A cut above',
 				'post_excerpt' => 'His attention to detail is what separates him from the rest.',
 				'post_type' => 'wpm-testimonial',
 				'post_status' => 'publish',
 			),
 			'thumbnail' => array(
-				'name' => 'stock-photo-6803641-business-men-portrait-father-and-son.jpg',
+				'name' => 'photo-01.jpg',
 				'type' => 'jpg',
 			),
 			'meta' => array(
@@ -189,84 +187,79 @@ class Strong_Testimonials_Sample_Data {
 		$posts[] = array(
 			'post' => array(
 				'post_content' => 'Most accountants do a good job but Kevin goes the extra mile and makes sure he delivers quality work every time. I know I can count on him for my company.',
-				'post_name' => 'the-extra-mile',
 				'post_title' => 'The extra mile',
 				'post_excerpt' => 'I know I can count on him.',
 				'post_type' => 'wpm-testimonial',
 				'post_status' => 'publish',
 			),
 			'thumbnail' => array(
-				'name' => 'stock-photo-29044632-male-florist-working-in-garden-center.jpg',
+				'name' => 'photo-05.jpg',
 				'type' => 'jpg',
 			),
 			'meta' => array(
-				'client_name' => 'Allen Bradley',
+				'client_name' => 'Ellen Bradley',
 				'email' => '',
-				'company_name' => 'Home, Garden & Beyond',
+				'company_name' => 'I Heart Gardens',
 				'company_website' => 'http://demos.wpmission.com',
 			),
 		);
 
-
 		$posts[] = array(
 			'post' => array(
 				'post_content' => 'When I was starting up my business I didn’t know where to begin. A friend suggested I see Kevin and I have never regretted it. Kevin sat me down and we had a chat about the kind of business and what he could provide for me. He is a trustworthy advisor, a confidant, a patient soul who takes the time to understand your history, challenges, and dreams. He is a master of keeping everything in context, as you would expect from someone with his level of experience. I would recommend him to anyone starting up a business.',
-				'post_name' => 'a-trustworthy-advisor',
 				'post_title' => 'A trustworthy advisor',
 				'post_excerpt' => 'I would recommend him to anyone starting up a business.',
 				'post_type' => 'wpm-testimonial',
 				'post_status' => 'publish',
 			),
 			'thumbnail' => array(
-				'name' => 'stock-photo-19050849-hawaiian-surfer-with-surfboard.jpg',
+				'name' => 'photo-10.jpg',
 				'type' => 'jpg',
 			),
 			'meta' => array(
 				'client_name' => 'Finn',
 				'email' => '',
-				'company_name' => 'Surf Nation',
+				'company_name' => 'Beer Nation',
 				'company_website' => '',
 			),
 		);
 
 		$posts[] = array(
 			'post' => array(
-				'post_content' => 'Kevin gives us practical advice and shows us how we could be doing things in a more cost efficient way. He is a good guy to have around in a crisis and it is reassuring to know that he is in our corner.',
-				'post_name' => 'a-good-guy-to-have-around',
+				'post_content' => 'Kevin gives us practical advice and shows us how we could be doing things in a more cost efficient way. He is a good guy to have around in a crisis and it is reassuring to know that he is in our corner. Ask him about the time we almost set fire to my office!',
 				'post_title' => 'A good guy to have around',
 				'post_excerpt' => 'He is a good guy to have around in a crisis.',
 				'post_type' => 'wpm-testimonial',
 				'post_status' => 'publish',
 			),
 			'thumbnail' => array(
-				'name' => 'stock-photo-25417363-african-male-auto-mechanic.jpg',
+				'name' => 'photo-06.jpg',
 				'type' => 'jpg',
 			),
 			'meta' => array(
-				'client_name' => 'Justin',
+				'client_name' => 'Justine',
 				'email' => '',
-				'company_name' => 'We Fix, U Drive',
-				'company_website' => 'http://www.wpmission.com',
+				'company_name' => 'Butterfly Candles',
+				'company_website' => 'http://demo.wpmission.com',
 			),
 		);
 
 		$posts[] = array(
 			'post' => array(
-				'post_content' => 'Payroll was a big headache for us. Bringing in Kevin was smooth and painless. He just made it happen for us.',
-				'post_name' => 'no-more-headache',
+				'post_content' => 'The end of every year was always a big headache for us. Bringing in Kevin was smooth and painless. He just made it happen for us. As an NGO expert, he knew exactly what we needed and put everyone\'s mind at ease. I highly recommended him!',
 				'post_title' => 'No more headache',
 				'post_excerpt' => 'Kevin just made it happen for us.',
 				'post_type' => 'wpm-testimonial',
 				'post_status' => 'publish',
 			),
 			'thumbnail' => array(
-				'name' => 'stock-photo-12629072-mature-business-woman-smiling.jpg',
+				'name' => 'photo-02.jpg',
 				'type' => 'jpg',
 			),
 			'meta' => array(
-				'client_name' => 'Janet Walton',
+				'client_name' => 'Mbele Oyelowo',
 				'email' => '',
-				'company_name' => 'Walton Marketing & Sales',
+				'company_name' => '',
 				'company_website' => '',
 			),
 		);
@@ -274,14 +267,13 @@ class Strong_Testimonials_Sample_Data {
 		$posts[] = array(
 			'post' => array(
 				'post_content' => 'Luckily we found Kevin and he was able to step in really quickly and take over the whole payroll issue for us.',
-				'post_name' => 'ended-our-payroll-nightmare',
 				'post_title' => 'Ended our payroll nightmare',
 				'post_excerpt' => 'He was able to step in really quickly.',
 				'post_type' => 'wpm-testimonial',
 				'post_status' => 'publish',
 			),
 			'thumbnail' => array(
-				'name' => 'stock-photo-31044616-this-team-is-the-best.jpg',
+				'name' => 'photo-08.jpg',
 				'type' => 'jpg',
 			),
 			'meta' => array(
@@ -294,42 +286,40 @@ class Strong_Testimonials_Sample_Data {
 
 		$posts[] = array(
 			'post' => array(
-				'post_content' => 'We have worked with Kevin in the past and we recommend him wholeheartedly. The most important thing for us is that he listens. The last project he worked with us on was to organize QuickBooks. We had no clue where to start! We only knew we needed a simple, straightforward process that just worked so we could focus on our business. Kevin tailored a plan for us and walked us through it. He delivered on time with no issues.',
-				'post_name' => 'we-had-no-clue',
-				'post_title' => 'We had no clue',
-				'post_excerpt' => 'The most important thing for us is that he listens.',
+				'post_content' => 'Kevin is a total professional. I had used him before for some accounting work, but when our company had a paperwork mini-crisis he worked hard and fast with us to pull things around.',
+				'post_title' => 'A total professional',
+				'post_excerpt' => 'He worked hard and fast with us to pull things around.',
 				'post_type' => 'wpm-testimonial',
 				'post_status' => 'publish',
 			),
 			'thumbnail' => array(
-				'name' => 'stock-photo-24302778-a-woman-in-an-antique-store-in-a-small-town-with.jpg',
+				'name' => 'photo-04.jpg',
 				'type' => 'jpg',
 			),
 			'meta' => array(
-				'client_name' => 'Linda',
+				'client_name' => 'Jessie',
 				'email' => '',
 				'company_name' => 'The Cherrywood Shop',
-				'company_website' => 'http://wpmission.com',
+				'company_website' => 'http://demo.wpmission.com',
 			),
 		);
 
 		$posts[] = array(
 			'post' => array(
 				'post_content' => 'Kevin organized everything and he made our paperwork process more efficient.',
-				'post_name' => 'organized-everything',
 				'post_title' => 'Organized everything',
 				'post_excerpt' => 'Kevin organized everything.',
 				'post_type' => 'wpm-testimonial',
 				'post_status' => 'publish',
 			),
 			'thumbnail' => array(
-				'name' => 'stock-photo-11245255-restaurant-team.jpg',
+				'name' => 'photo-03.jpg',
 				'type' => 'jpg',
 			),
 			'meta' => array(
-				'client_name' => 'Mr. Klark',
+				'client_name' => 'Tina Clark',
 				'email' => '',
-				'company_name' => 'Klark’s Restaurant',
+				'company_name' => 'Clark Restaurant Supply',
 				'company_website' => '',
 			),
 		);
@@ -337,24 +327,22 @@ class Strong_Testimonials_Sample_Data {
 		$posts[] = array(
 			'post' => array(
 				'post_content' => 'We had an accountant working in-house for us, which was a disaster. He hadn’t input any of the figures from our receipts for our business purchases for the whole year. End of year taxes had to be done and he had no figures for this. We called Kevin who came in to help. He sorted out the whole mess and made sure everything was good to go. He has done all our accounting ever since. Kevin rocks!',
-				'post_name' => 'sorted-out-the-whole-mess',
 				'post_title' => 'Sorted out the whole mess',
-				'post_excerpt' => 'He sorted out the whole mess and made sure everything was good to go.',
+				'post_excerpt' => 'He made sure everything was good to go.',
 				'post_type' => 'wpm-testimonial',
 				'post_status' => 'publish',
 			),
 			'thumbnail' => array(
-				'name' => 'stock-photo-23061638-portrait-real-people-high-definition-green-background.jpg',
+				'name' => 'photo-09.jpg',
 				'type' => 'jpg',
 			),
 			'meta' => array(
-				'client_name' => 'Jason',
+				'client_name' => 'Juanita Espinosa, NCIDQ',
 				'email' => '',
 				'company_name' => '',
-				'company_website' => 'http://jasonstereo.com',
+				'company_website' => 'http://mariposadesign.com',
 			),
 		);
-
 
 		return $posts;
 	}
