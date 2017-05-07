@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name: Strong Testimonials Sample Data
- * Plugin URI: http://www.wpmission.com
+ * Plugin Name: Strong Testimonials - Sample Data
+ * Plugin URI: https://strongplugins.com
  * Description: Sample data for the Strong Testimonials plugin.
  * Author: Chris Dillon
- * Version: 0.5
- * Author URI: http://www.wpmission.com
+ * Version: 0.6
+ * Author URI: https://strongplugins.com
  * Text Domain: strong-testimonials-sample-data
  * Requires: 3.3 or higher
  * License: GPLv3 or later
  *
- * Copyright 2015  Chris Dillon  chris@wpmission.com
+ * Copyright 2015-2017  Chris Dillon  chris@strongplugins.com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2, as
@@ -27,17 +27,14 @@
  */
 class Strong_Testimonials_Sample_Data {
 
-	public function __construct() {
-		register_activation_hook( __FILE__, array( $this, 'insert_posts' ) );
-	}
-
+	//public static function __construct() {}
 
 	/**
 	 * Insert the testimonials.
 	 */
-	public function insert_posts() {
+	public static function insert_posts() {
 
-		$posts = $this->get_posts();
+		$posts = self::get_posts();
 		$now = time();
 		$date_format = 'Y-m-d H:i:s';
 
@@ -61,12 +58,12 @@ class Strong_Testimonials_Sample_Data {
 
 				// Add client fields
 				if ( isset( $apost['meta'] ) && !empty( $apost['meta'] ) ) {
-					$success = $this->add_meta( $post_id, $apost['meta'] );
+					self::add_meta( $post_id, $apost['meta'] );
 				}
 
 				// Add thumbnail image
 				if ( isset( $apost['thumbnail'] ) && !empty( $apost['thumbnail'] ) ) {
-					$success = $this->add_thumbnail( $post_id, $apost['thumbnail']['name'] );
+					self::add_thumbnail( $post_id, $apost['thumbnail']['name'] );
 				}
 
 			}
@@ -81,7 +78,7 @@ class Strong_Testimonials_Sample_Data {
 	 *
 	 * @return bool
 	 */
-	public function add_meta( $post_id, $fields ) {
+	public static function add_meta( $post_id, $fields ) {
 		foreach ( $fields as $key => $value ) {
 			$meta_id = add_post_meta( $post_id, $key, $value );
 			if ( !$meta_id )
@@ -100,7 +97,7 @@ class Strong_Testimonials_Sample_Data {
 	 *
 	 * @return bool
 	 */
-	public function add_thumbnail( $post_id, $filename ) {
+	public static function add_thumbnail( $post_id, $filename ) {
 		// Locate the file.
 		$file = plugin_dir_path( __FILE__ ) . 'images/' . $filename;
 		if ( !file_exists( $file ) || 0 === strlen( trim( $filename ) ) ) {
@@ -140,15 +137,15 @@ class Strong_Testimonials_Sample_Data {
 	/**
 	 * @return array
 	 */
-	public function get_posts() {
+	public static function get_posts() {
 
 		$posts = array();
 
 		$posts[] = array(
 			'post' => array(
-				'post_content' => 'We have worked with Kevin in the past and we recommend him wholeheartedly! The most important thing for us is that he listens. The last project he worked with us on was to organize QuickBooks. We had no clue where to start! We only knew we needed a simple, straightforward process that just worked so we could focus on our business. Kevin tailored a plan for us and walked us through it. He delivered on time with no issues.',
+				'post_content' => 'We have worked with Kevin in the past and we recommend him whole-heartedly! The most important thing for us is that he listens. The last project he worked with us on was to organize QuickBooks. We had no clue where to start! We only knew we needed a simple, straightforward process that just worked so we could focus on our business. Kevin tailored a plan for us and walked us through it. He delivered on time with no issues.',
 				'post_title' => 'He delivered on time',
-				'post_excerpt' => 'We recommend him wholeheartedly!',
+				'post_excerpt' => 'We recommend him whole-heartedly!',
 				'post_type' => 'wpm-testimonial',
 				'post_status' => 'publish',
 			),
@@ -157,16 +154,16 @@ class Strong_Testimonials_Sample_Data {
 				'type' => 'jpg',
 			),
 			'meta' => array(
-				'client_name' => 'Patrick Wong',
+				'client_name' => 'Hitaka Nakamura',
 				'email' => '',
-				'company_name' => 'Wong Photography',
-				'company_website' => 'http://demos.wpmission.com',
+				'company_name' => 'Komorebi Studios',
+				'company_website' => 'https://demos.strongplugins.com',
 			),
 		);
 
 		$posts[] = array(
 			'post' => array(
-				'post_content' => 'His attention to detail is what separates him from the rest. Today’s accountants don’t seem to have that level of accuracy that they did when I first started out in this business. Kevin, however, is a cut above and delivers the kind of quality that I used to produce when I started out as accountant for my Pop.',
+				'post_content' => 'We have worked with many accountants over the years. Kevin is a cut above and delivers the quality that we need. His attention to detail is what separates him from the rest. I highly recommend him.',
 				'post_title' => 'A cut above',
 				'post_excerpt' => 'His attention to detail is what separates him from the rest.',
 				'post_type' => 'wpm-testimonial',
@@ -177,9 +174,9 @@ class Strong_Testimonials_Sample_Data {
 				'type' => 'jpg',
 			),
 			'meta' => array(
-				'client_name' => 'Edgar Wright',
+				'client_name' => 'Aatik Tasneem',
 				'email' => '',
-				'company_name' => 'Wright & Sons',
+				'company_name' => 'The EXIM Conference',
 				'company_website' => '',
 			),
 		);
@@ -200,13 +197,13 @@ class Strong_Testimonials_Sample_Data {
 				'client_name' => 'Ellen Bradley',
 				'email' => '',
 				'company_name' => 'I Heart Gardens',
-				'company_website' => 'http://demos.wpmission.com',
+				'company_website' => 'https://demos.strongplugins.com',
 			),
 		);
 
 		$posts[] = array(
 			'post' => array(
-				'post_content' => 'When I was starting up my business I didn’t know where to begin. A friend suggested I see Kevin and I have never regretted it. Kevin sat me down and we had a chat about the kind of business and what he could provide for me. He is a trustworthy advisor, a confidant, a patient soul who takes the time to understand your history, challenges, and dreams. He is a master of keeping everything in context, as you would expect from someone with his level of experience. I would recommend him to anyone starting up a business.',
+				'post_content' => 'When I was starting up my business I didn’t know where to begin. A friend suggested I see Kevin and I have never regretted it. Kevin sat me down and we talked about what I needed and what he could provide for me. He is a trustworthy advisor, a confidant, a patient soul who takes the time to understand your history, challenges, and dreams. He is a master of keeping everything in context, as you would expect from someone with his level of experience. I would recommend him to anyone starting up a business.',
 				'post_title' => 'A trustworthy advisor',
 				'post_excerpt' => 'I would recommend him to anyone starting up a business.',
 				'post_type' => 'wpm-testimonial',
@@ -240,13 +237,13 @@ class Strong_Testimonials_Sample_Data {
 				'client_name' => 'Justine',
 				'email' => '',
 				'company_name' => 'Butterfly Candles',
-				'company_website' => 'http://demo.wpmission.com',
+				'company_website' => 'https://demos.strongplugins.com',
 			),
 		);
 
 		$posts[] = array(
 			'post' => array(
-				'post_content' => 'The end of every year was always a big headache for us. Bringing in Kevin was smooth and painless. He just made it happen for us. As an NGO expert, he knew exactly what we needed and put everyone\'s mind at ease. I highly recommended him!',
+				'post_content' => 'The end of every year was always a big headache for us. Bringing in Kevin was smooth and painless. He just made it happen for us. As an NGO expert, he knew exactly what we needed and put everyone\'s mind at ease. I highly recommended this accounting master!',
 				'post_title' => 'No more headache',
 				'post_excerpt' => 'Kevin just made it happen for us.',
 				'post_type' => 'wpm-testimonial',
@@ -300,7 +297,7 @@ class Strong_Testimonials_Sample_Data {
 				'client_name' => 'Jessie',
 				'email' => '',
 				'company_name' => 'The Cherrywood Shop',
-				'company_website' => 'http://demo.wpmission.com',
+				'company_website' => 'https://demos.strongplugins.com',
 			),
 		);
 
@@ -337,7 +334,7 @@ class Strong_Testimonials_Sample_Data {
 				'type' => 'jpg',
 			),
 			'meta' => array(
-				'client_name' => 'Juanita Espinosa, NCIDQ',
+				'client_name' => 'Juanita Espinosa',
 				'email' => '',
 				'company_name' => '',
 				'company_website' => 'http://mariposadesign.com',
@@ -349,4 +346,6 @@ class Strong_Testimonials_Sample_Data {
 
 }
 
-new Strong_Testimonials_Sample_Data();
+//new Strong_Testimonials_Sample_Data();
+
+register_activation_hook( __FILE__, array( 'Strong_Testimonials_Sample_Data', 'insert_posts' ) );
