@@ -4,7 +4,7 @@
  * Plugin URI: https://strongplugins.com
  * Description: Sample data for the Strong Testimonials plugin.
  * Author: Chris Dillon
- * Version: 0.6
+ * Version: 0.7
  * Author URI: https://strongplugins.com
  * Text Domain: strong-testimonials-sample-data
  * Requires: 3.3 or higher
@@ -48,24 +48,31 @@ class Strong_Testimonials_Sample_Data {
 			$post['post_date'] = date( $date_format, $newtime );
 			$post['post_date_gmt'] = gmdate( $date_format, $newtime );
 
-			if ( null == get_page_by_title( $post['post_title'], OBJECT, 'wpm-testimonial' ) ) {
+			$existing_post = get_page_by_title( $post['post_title'], OBJECT, 'wpm-testimonial' );
 
-				// Create testimonial post
+			if ( null === $existing_post ) {
+
 				$post_id = wp_insert_post( $post, true );
-				if ( is_wp_error( $post_id ) ) {
-					error_log( print_r( $post_id, true ) );
-				}
 
-				// Add client fields
-				if ( isset( $apost['meta'] ) && !empty( $apost['meta'] ) ) {
-					self::add_meta( $post_id, $apost['meta'] );
-				}
+			} else {
 
-				// Add thumbnail image
-				if ( isset( $apost['thumbnail'] ) && !empty( $apost['thumbnail'] ) ) {
-					self::add_thumbnail( $post_id, $apost['thumbnail']['name'] );
-				}
+				$post_id = wp_update_post( $existing_post, true );
+				delete_post_thumbnail( $existing_post );
 
+			}
+
+			if ( is_wp_error( $post_id ) || ! 0 === $post_id ) {
+				error_log( print_r( $post_id, true ) );
+			}
+
+			// Add client fields
+			if ( isset( $apost['meta'] ) && !empty( $apost['meta'] ) ) {
+				self::add_meta( $post_id, $apost['meta'] );
+			}
+
+			// Add thumbnail image
+			if ( isset( $apost['thumbnail'] ) && !empty( $apost['thumbnail'] ) ) {
+				self::add_thumbnail( $post_id, $apost['thumbnail']['name'] );
 			}
 
 		}
@@ -80,7 +87,7 @@ class Strong_Testimonials_Sample_Data {
 	 */
 	public static function add_meta( $post_id, $fields ) {
 		foreach ( $fields as $key => $value ) {
-			$meta_id = add_post_meta( $post_id, $key, $value );
+			$meta_id = update_post_meta( $post_id, $key, $value );
 			if ( !$meta_id )
 				return false;
 		}
