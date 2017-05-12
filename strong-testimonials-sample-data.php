@@ -4,7 +4,7 @@
  * Plugin URI: https://strongplugins.com
  * Description: Sample data for the Strong Testimonials plugin.
  * Author: Chris Dillon
- * Version: 0.7
+ * Version: 0.8
  * Author URI: https://strongplugins.com
  * Text Domain: strong-testimonials-sample-data
  * Requires: 3.3 or higher
@@ -30,9 +30,26 @@ class Strong_Testimonials_Sample_Data {
 	//public static function __construct() {}
 
 	/**
+	 * Custom upload directory
+	 *
+	 * @param array $uploads
+	 *
+	 * @return array
+	 */
+	public function custom_upload_dir( $uploads ) {
+		$uploads['subdir'] = '/testimonials';
+		$uploads['path']   = $uploads['basedir'] . $uploads['subdir'];
+		$uploads['url']    = $uploads['baseurl'] . $uploads['subdir'];
+
+		return $uploads;
+	}
+
+	/**
 	 * Insert the testimonials.
 	 */
 	public static function insert_posts() {
+
+		add_filter( 'upload_dir', array( 'Strong_Testimonials_Sample_Data', 'custom_upload_dir' ) );
 
 		$posts = self::get_posts();
 		$now = time();
@@ -76,6 +93,8 @@ class Strong_Testimonials_Sample_Data {
 			}
 
 		}
+
+		remove_filter( 'upload_dir', array( 'Strong_Testimonials_Sample_Data', 'custom_upload_dir' ) );
 
 	}
 
@@ -310,7 +329,7 @@ class Strong_Testimonials_Sample_Data {
 
 		$posts[] = array(
 			'post' => array(
-				'post_content' => 'Kevin organized everything and he made our paperwork process more efficient.',
+				'post_content' => 'Kevin organized everything and he made our paperwork process more efficient so we can focus on our business.',
 				'post_title' => 'Organized everything',
 				'post_excerpt' => 'Kevin organized everything.',
 				'post_type' => 'wpm-testimonial',
