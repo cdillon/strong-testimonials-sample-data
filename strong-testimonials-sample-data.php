@@ -4,7 +4,7 @@
  * Plugin URI: https://strongplugins.com
  * Description: Sample data for the Strong Testimonials plugin.
  * Author: Chris Dillon
- * Version: 0.8
+ * Version: 0.8.1
  * Author URI: https://strongplugins.com
  * Text Domain: strong-testimonials-sample-data
  * Requires: 3.3 or higher
@@ -25,9 +25,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
-class Strong_Testimonials_Sample_Data {
 
-	//public static function __construct() {}
+class Strong_Testimonials_Sample_Data {
 
 	/**
 	 * Custom upload directory
@@ -36,7 +35,7 @@ class Strong_Testimonials_Sample_Data {
 	 *
 	 * @return array
 	 */
-	public function custom_upload_dir( $uploads ) {
+	public static function custom_upload_dir( $uploads ) {
 		$uploads['subdir'] = '/testimonials';
 		$uploads['path']   = $uploads['basedir'] . $uploads['subdir'];
 		$uploads['url']    = $uploads['baseurl'] . $uploads['subdir'];
@@ -371,7 +370,5 @@ class Strong_Testimonials_Sample_Data {
 	}
 
 }
-
-//new Strong_Testimonials_Sample_Data();
 
 register_activation_hook( __FILE__, array( 'Strong_Testimonials_Sample_Data', 'insert_posts' ) );
