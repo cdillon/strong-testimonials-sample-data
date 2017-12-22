@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name: Strong Testimonials - Sample Data
+ * Plugin Name: Strong Testimonials Sample Data
  * Plugin URI: https://strongplugins.com
  * Description: Sample data for the Strong Testimonials plugin.
  * Author: Chris Dillon
- * Version: 0.8.1
+ * Version: 0.8.2
  * Author URI: https://strongplugins.com
  * Text Domain: strong-testimonials-sample-data
- * Requires: 3.3 or higher
+ * Requires: 3.7 or higher
  * License: GPLv3 or later
  *
- * Copyright 2015-2017  Chris Dillon  chris@strongplugins.com
+ * Copyright 2015-2018  Chris Dillon  chris@strongplugins.com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2, as
